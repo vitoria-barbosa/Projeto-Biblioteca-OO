@@ -1,9 +1,25 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
     private String nome;
     private String matricula;
-    private List<Livro> livrosEmprestados;
+    private List<Livro> livrosEmprestados = new ArrayList<>();
+
+    public Usuario (String nome, String matricula){
+        this.nome = nome;
+        this.matricula = matricula;
+    }
+
+    public void toData(){
+        System.out.printf(
+                """
+                | NOME                          :  %s
+                | MATRICULA                     :  %s
+                | QUANTIDADE LIVROS EMPRESTADOS :  %s
+                
+               """,this.nome,this.matricula,this.livrosEmprestados.size());
+    }
 
     public String getNome() {
         return nome;
