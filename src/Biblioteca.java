@@ -8,6 +8,63 @@ public class Biblioteca {
     private List<Livro> livros = utils.listaInicialDeLivros();
     private List<Usuario> usuarios = utils.listaInicialDeUsuarios();;
 
+    public void emprestarLivro(){
+        Usuario usuario = null;
+        while (usuario != null){
+            usuario = validarUsuarioPelaMatricula();
+        }
+        mostrarLivrosComFiltragem();
+    }
+
+    public Livro validarLivroPeloNome(){
+
+    }
+
+    public void mostrarLivrosComFiltragem(){
+        int escolha = utils.entradaInt(
+                """
+                ESCOLHA DE QUE FORMA QUER FILTRAR OS LIVROS:
+                |1 - PELO NOME DO LIVRO
+                |2 - POR PARTE DO NOME DO LIVRO
+                |3 - PELO GÊNERO
+                |4 - PELO NOME DO AUTOR
+                |5 - LISTAR TODOS
+                   """
+        );
+        switch (escolha){
+            case 1:
+                buscarLivroPorTitulo();
+                break;
+            case 2:
+                buscarLivroPorParteNome();
+                break;
+            case 3:
+                listarLivroPorGenero();
+                break;
+            case 4:
+                buscarLivroPorParteNomeAutor();
+                break;
+            case 5:
+                listarTodosOsLivros();
+                break;
+            default:
+                System.out.println("OPÇÃO INVÁLIDA");
+                break;
+        }
+    }
+
+    public Usuario validarUsuarioPelaMatricula(){
+        listarTodosOsUsuarios();
+        String matricula = utils.entrada("DIGITE A MATRÍCULA");
+
+        for(Usuario usuario : this.usuarios){
+            if(usuario.getMatricula().equals(matricula)){
+                return usuario;
+            }
+        }
+        System.out.println("USUÁRIO NÃO ENCONTRADO.");
+        return null;
+    }
 
     public void listarTodosOsLivros(){
         for(Livro livro : livros){

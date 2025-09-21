@@ -7,8 +7,9 @@ public class Livro {
     private String anoPublicacao;
     private Genero genero;
     private boolean disponivel = true;
+    private int qtdVezesFoiEmprestado = 0;
 
-    public Livro(String nomeLivro,String autor, String anoPublicacao,Genero genero){
+    public Livro(String nomeLivro, String autor, String anoPublicacao, Genero genero){
         this.titulo = nomeLivro;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
@@ -27,6 +28,10 @@ public class Livro {
                 ------------------------
                 
                """,this.titulo,this.autor,this.anoPublicacao, this.disponivel ? "SIM" : "NÃO", this.genero.getNome());
+    }
+
+    public void mudarStatusDisponibilidade(){
+        this.disponivel = !this.disponivel;
     }
 
     public Genero getGenero() {
@@ -67,5 +72,13 @@ public class Livro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public int getQtdVezesFoiEmprestado() {
+        return qtdVezesFoiEmprestado;
+    }
+
+    public void setQtdVezesFoiEmprestado(int qtdVezesFoiEmprestado) {
+        this.qtdVezesFoiEmprestado = qtdVezesFoiEmprestado;
     }
 }
