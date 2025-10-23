@@ -1,14 +1,16 @@
+package Entidades;
+
 import java.util.List;
 
-public class Professor extends Usuario{
-    public Professor(String nome, String matricula) {
+public class Aluno extends Usuario {
+    public Aluno(String nome, String matricula) {
         super(nome, matricula);
     }
 
     @Override
     public void adicionarLivro(Livro livro){
 
-        if(getLivrosEmprestados().size() < 5){
+        if(getLivrosEmprestados().size() < 3){
             System.out.println("LIVRO EMPRESTADO COM SUCESSO!!!");
 
             List<Livro> livros = getLivrosEmprestados();

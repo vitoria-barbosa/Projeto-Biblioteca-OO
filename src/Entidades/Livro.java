@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+package Entidades;
+
+import Entidades.Enum.Genero;
 
 public class Livro {
     private String titulo;

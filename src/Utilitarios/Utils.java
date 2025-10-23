@@ -1,12 +1,20 @@
+package Utilitarios;
+
+import Entidades.Aluno;
+import Entidades.Enum.Genero;
+import Entidades.Livro;
+import Entidades.Professor;
+import Entidades.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
 
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    public int menu(){
+    public static int menu(){
         System.out.println(
                 """
                 -------------- MENU --------------------
@@ -31,10 +39,10 @@ public class Utils {
         return sc.nextInt();
     }
 
-    public List<Livro> listaInicialDeLivros(){
+    public static List<Livro> listaInicialDeLivros(){
         List<Livro> livros = new ArrayList<>();
 
-        livros.add(new Livro("BELAS ADORMECIDAS", "STEPHEN KING", "2020",Genero.TERROR));
+        livros.add(new Livro("BELAS ADORMECIDAS", "STEPHEN KING", "2020", Genero.TERROR));
         livros.add(new Livro("OUTSIDER", "STEPHEN KING", "2022",Genero.ROMANCE));
         livros.add(new Livro("CARRIE", "STEPHEN KING", "2023",Genero.TERROR));
         livros.add(new Livro("IT A COISA", "STEPHEN KING", "2019",Genero.FICCAO));
@@ -46,7 +54,7 @@ public class Utils {
         return livros;
     }
 
-    public List<Usuario> listaInicialDeUsuarios(){
+    public static List<Usuario> listaInicialDeUsuarios(){
         List<Usuario> usuarios = new ArrayList<>();
 
         usuarios.add(new Aluno("THALISSON","0001"));
@@ -61,22 +69,22 @@ public class Utils {
         return usuarios;
     }
 
-    public String entrada(String t){
+    public static String entrada(String t){
         System.out.println(t);
         return sc.nextLine();
     }
 
-    public int entradaInt(String t){
+    public static int entradaInt(String t){
         System.out.println(t);
         return sc.nextInt();
     }
 
-    public Double entradaDouble(String t){
+    public static Double entradaDouble(String t){
         System.out.println(t);
         return sc.nextDouble();
     }
 
-    public void limparBuffer(){
+    public static void limparBuffer(){
         sc.nextLine();
     }
 

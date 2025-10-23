@@ -1,14 +1,13 @@
-import java.util.List;
+import static Utilitarios.Utils.*;
+import Entidades.Biblioteca;
 
 public class Main {
-    static Utils utils = new Utils();
-
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         int escolha = 1;
 
         while(escolha != 0){
-            escolha = utils.menu();
+            escolha =  menu();
 
             switch (escolha){
                 case 1:

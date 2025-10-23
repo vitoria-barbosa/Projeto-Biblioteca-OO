@@ -1,12 +1,15 @@
-import java.util.ArrayList;
+package Entidades;
+
+import Entidades.Enum.Genero;
+
 import java.util.List;
+
+import static Utilitarios.Utils.*;
 
 public class Biblioteca {
 
-    private Utils utils = new Utils();
-
-    private List<Livro> livros = utils.listaInicialDeLivros();
-    private List<Usuario> usuarios = utils.listaInicialDeUsuarios();;
+    private List<Livro> livros = listaInicialDeLivros();
+    private List<Usuario> usuarios = listaInicialDeUsuarios();;
 
     public void emprestarLivro(){
         listarTodosOsUsuarios();
@@ -29,7 +32,7 @@ public class Biblioteca {
                 livro.toData();
             }
 
-            String nome = utils.entrada("LIVRO: ").toUpperCase().trim();
+            String nome = entrada("LIVRO: ").toUpperCase().trim();
 
 
             for(Livro livro : livros){
@@ -49,7 +52,7 @@ public class Biblioteca {
     }
 
     public Livro validarLivroPorNome(){
-        String nome = utils.entrada("LIVRO: ").toUpperCase().trim();
+        String nome = entrada("LIVRO: ").toUpperCase().trim();
 
         for(Livro livro : livros){
             if(livro.getTitulo().equals(nome)){
@@ -68,7 +71,7 @@ public class Biblioteca {
     }
 
     public Usuario validarUsuarioPorMatricula(){
-        String matricula = utils.entrada("MATRICULA: ").toUpperCase().trim();
+        String matricula = entrada("MATRICULA: ").toUpperCase().trim();
 
         for(Usuario usuario : usuarios){
             if(usuario.getMatricula().equals(matricula)){
@@ -152,7 +155,7 @@ public class Biblioteca {
                       """,genero.ordinal() + 1, genero.getNome());
           }
 
-          int escolha = utils.entradaInt("ESCOLHA UM NÚMERO: ");
+          int escolha = entradaInt("ESCOLHA UM NÚMERO: ");
 
           Genero genero = Genero.values()[escolha - 1];
 
@@ -163,7 +166,7 @@ public class Biblioteca {
           }
       } catch (Exception e){
           System.out.println("Entrada inválida!! Informe corretamente o número!");
-          utils.limparBuffer();
+          limparBuffer();
       }
     }
 
@@ -201,7 +204,7 @@ public class Biblioteca {
     }
 
     public void buscarLivroPorTitulo(){
-        String nome = utils.entrada("INFORME O NOME DO LIVRO: ").toUpperCase().trim();
+        String nome = entrada("INFORME O NOME DO LIVRO: ").toUpperCase().trim();
 
 
         for(Livro livro : livros){
@@ -215,7 +218,7 @@ public class Biblioteca {
     }
 
     public void buscarLivroPorParteNome(){
-        String nome = utils.entrada("INFORME O NOME DO LIVRO: ").toUpperCase().trim();
+        String nome = entrada("INFORME O NOME DO LIVRO: ").toUpperCase().trim();
         boolean livroEncontrado = false;
 
         for(Livro livro : livros){
@@ -232,7 +235,7 @@ public class Biblioteca {
     }
 
     public void buscarLivroPorParteNomeAutor(){
-        String nome = utils.entrada("INFORME O NOME DO AUTOR: ").toUpperCase().trim();
+        String nome = entrada("INFORME O NOME DO AUTOR: ").toUpperCase().trim();
         boolean livroEncontrado = false;
 
 
@@ -250,7 +253,7 @@ public class Biblioteca {
 
 
     public void buscarUsuarioPorMatricula(){
-        String matricula = utils.entrada("INFORME A MATRICULA: ").toUpperCase().trim();
+        String matricula = entrada("INFORME A MATRICULA: ").toUpperCase().trim();
 
         for(Usuario usuario : usuarios){
             if(usuario.getMatricula().equals(matricula)){
@@ -264,7 +267,7 @@ public class Biblioteca {
 
 
     public void buscarUsuarioPorParteNome(){
-        String nome = utils.entrada("INFORME O NOME DO USUARIO: ").toUpperCase().trim();
+        String nome = entrada("INFORME O NOME DO USUARIO: ").toUpperCase().trim();
         boolean usuarioEncontrado = false;
 
         for(Usuario usuario : usuarios){

@@ -1,3 +1,5 @@
+package Entidades.Enum;
+
 public enum Genero {
     FICCAO("FICÇÃO"),
     ROMANCE("ROMANCE"),
